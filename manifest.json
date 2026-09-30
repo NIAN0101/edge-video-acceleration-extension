@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Video Speed Enhancer",
+  "version": "1.0.0",
+  "description": "加速网页视频播放，隐藏加速迹象",
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Video Speed Enhancer"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ]
+}
